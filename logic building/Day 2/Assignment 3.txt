@@ -1,0 +1,569 @@
+ ---------------Assignment 3-------------------
+
+
+Snippet 1:  
+public class InfiniteForLoop { 
+    public static void main(String[] args) { 
+        for (int i = 0; i < 10; i--) { 
+            System.out.println(i); 
+        } 
+    } 
+} 
+// Error to investigate: we are getting stuck in Loop
+
+Corrected code public class InfiniteForLoop { 
+    public static void main(String[] args) { 
+        for (int i = 0; i < 10; i++) {        // we need to write i++
+            System.out.println(i); 
+        } 
+    } 
+} 
+
+
+
+
+
+
+
+
+Snippet 2:  
+public class IncorrectWhileCondition { 
+    public static void main(String[] args) { 
+        int count = 5; 
+        while (count = 0) { 
+            System.out.println(count); 
+            count--; 
+        } 
+    } 
+} 
+// Error  :  we are not getting any error it giving null 
+
+Corrected Code : public class IncorrectWhileCondition { 
+    public static void main(String[] args) { 
+        int count = 5; 
+        while (count >0 ) {             // we need to give a condition here count>0
+            System.out.println(count); 
+            count--; 
+        } 
+    } 
+} 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+Snippet 3:  
+public class DoWhileIncorrectCondition { 
+    public static void main(String[] args) { 
+        int num = 0; 
+        do { 
+            System.out.println(num); 
+            num++; 
+        } while (num > 0); 
+ 
+ 
+    } 
+} 
+// Error to investigate: we are getting loop
+
+
+Corrected Output : public class DoWhileIncorrectCondition { 
+    public static void main(String[] args) { 
+        int num = 0; 
+        do { 
+            System.out.println(num); 
+            num++; 
+        } while (num < 5); // we need aad a number here in while condition
+ 
+ 
+    } 
+} 
+ 
+
+
+
+
+
+
+
+
+
+
+
+Snippet 4:  
+public class OffByOneErrorForLoop { 
+    public static void main(String[] args) { 
+        for (int i = 1; i <= 10; i++) { 
+            System.out.println(i); 
+        } 
+        // Expected: 10 iterations with numbers 1 to 10 
+        // Actual: Prints numbers 1 to 10, but the task expected only 1 to 9 
+    } 
+} 
+// Error to investigate:   we are geetin outpur from 1 to 10 but we need 1 to 9 
+
+
+
+Corrected output : public class OffByOneErrorForLoop { 
+    public static void main(String[] args) { 
+        for (int i = 1; i <= 10; i++) {      // we need only i<10 condition here
+            System.out.println(i); 
+        } 
+        // Expected: 10 iterations with numbers 1 to 10 
+        // Actual: Prints numbers 1 to 10, but the task expected only 1 to 9 
+    } 
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snippet 5:  
+public class WrongInitializationForLoop { 
+    public static void main(String[] args) { 
+        for (int i = 10; i >= 0; i++) { 
+            System.out.println(i); 
+        } 
+    } 
+} 
+// Error to investigate: we are getting infinite loop
+
+corrected output :
+public class WrongInitializationForLoop { 
+    public static void main(String[] args) { 
+        for (int i = 10; i >= 0; i--) {     // we need here i-- condition
+            System.out.println(i); 
+        } 
+    } 
+} 
+
+
+
+
+
+
+
+
+
+
+
+ 
+Snippet 6:  
+public class MisplacedForLoopBody { 
+    public static void main(String[] args) { 
+        for (int i = 0; i < 5; i++) 
+            System.out.println(i); 
+            System.out.println("Done"); 
+    } 
+} 
+// Error to investigate: we are getting print Done only one time we need to print Done Every time
+
+Corrected Output : public class MisplacedForLoopBody { 
+    public static void main(String[] args) { 
+        for (int i = 0; i < 5; i++) {    // we need to add { here 
+            System.out.println(i); 
+            System.out.println("Done");     // Close } here 
+    } 
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+Snippet 7:  
+public class UninitializedWhileLoop { 
+    public static void main(String[] args) { 
+        int count; 
+ 
+ 
+        while (count < 10) { 
+            System.out.println(count); 
+            count++; 
+        } 
+    } 
+} 
+// Error to investigate: we are getting Compiletime error
+
+Corrected Code : public class UninitializedWhileLoop { 
+    public static void main(String[] args) { 
+        int count =0;       // we need to give the int value to the count it can't be empty
+ 
+ 
+        while (count < 10) { 
+            System.out.println(count); 
+            count++; 
+        } 
+    } 
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Snippet 8:  
+public class OffByOneDoWhileLoop { 
+    public static void main(String[] args) { 
+        int num = 1; 
+        do { 
+            System.out.println(num); 
+            num--; 
+        } while (num > 0); 
+    } 
+} 
+// Error to investigate: we are getting continuous loop 
+corrected Code : 
+public class OffByOneDoWhileLoop { 
+    public static void main(String[] args) { 
+        int num = 1; 
+        do { 
+            System.out.println(num); 
+            num--; 
+        } while (num <=5);      // we need to give condition here num<=5
+    } 
+} 
+ 
+
+
+
+
+
+
+
+
+
+
+
+Snippet 9:  
+public class InfiniteForLoopUpdate { 
+    public static void main(String[] args) { 
+        for (int i = 0; i < 5; i += 2) { 
+            System.out.println(i); 
+        } 
+    } 
+} 
+// Error to investigate: 
+
+Corrected Code : ?? 
+
+
+
+
+
+
+
+Snippet 10:  
+public class IncorrectWhileLoopControl { 
+    public static void main(String[] args) { 
+        int num = 10; 
+        while (num = 10) { 
+            System.out.println(num); 
+            num--; 
+        } 
+    } 
+} 
+// Error to investigate: 
+
+Corrected code : public class IncorrectWhileLoopControl { 
+    public static void main(String[] args) { 
+        int num = 10; 
+        while (num >= 1) {         // we need to give condition here
+            System.out.println(num); 
+            num--; 
+        } 
+    } 
+} 
+ 
+ 
+
+
+
+
+
+ 
+Snippet 11:  
+public class IncorrectLoopUpdate { 
+    public static void main(String[] args) { 
+        int i = 0; 
+        while (i < 5) { 
+            System.out.println(i); 
+            i += 2; // Error: This may cause unexpected results in output 
+        } 
+    } 
+} 
+// Error to investigate: we ae getting 0,2,4 output but we need 0,1,2,3,4,
+Corrected code: public class IncorrectLoopUpdate { 
+    public static void main(String[] args) { 
+        int i = 0; 
+        while (i < 5) { 
+            System.out.println(i); 
+            i += 1;         // we need to write 1 here 
+        } 
+    } 
+} 
+
+
+
+
+
+
+ 
+Snippet 12:  
+public class LoopVariableScope { 
+    public static void main(String[] args) { 
+        for (int i = 0; i < 5; i++) { 
+            int x = i * 2; 
+        } 
+        System.out.println(x); // Error: 'x' is not accessible here 
+    } 
+} 
+// Error to investigate:   'x' is not accessible here 
+
+Corrected Code : 
+public class LoopVariableScope { 
+    public static void main(String[] args) { 
+        for (int i = 0; i < 5; i++) { 
+            int x = i * 2; 
+		System.out.println(x);         // we ne to print here Sop statement
+        } 
+   
+    } 
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+SECTION 2: Guess the Output
+
+
+Snippet 1:  
+public class NestedLoopOutput { 
+    public static void main(String[] args) { 
+        for (int i = 1; i <= 3; i++) { 
+            for (int j = 1; j <= 2; j++) { 
+                System.out.print(i + " " + j + " "); 
+            } 
+            System.out.println(); 
+ 
+ 
+        } 
+    } 
+} 
+// Guess the output of this nested loop. 
+Output :  
+1 1 1 2
+2 1 2 2
+3 1 3 2
+
+ 
+
+
+
+Snippet 2:  
+public class DecrementingLoop { 
+    public static void main(String[] args) { 
+        int total = 0; 
+        for (int i = 5; i > 0; i--) { 
+            total += i; 
+            if (i == 3) continue; 
+            total -= 1; 
+        } 
+        System.out.println(total); 
+    } 
+} 
+// Guess the output of this loop. 
+Output : 11 
+
+
+
+
+
+ 
+Snippet 3:  
+public class WhileLoopBreak { 
+    public static void main(String[] args) { 
+        int count = 0; 
+        while (count < 5) { 
+            System.out.print(count + " "); 
+            count++; 
+            if (count == 3) break; 
+        } 
+        System.out.println(count); 
+    } 
+} 
+// Guess the output of this while loop. 
+ 
+Output :  0 1 2 3
+
+
+
+
+
+Snippet 4:  
+public class DoWhileLoop { 
+    public static void main(String[] args) { 
+        int i = 1; 
+        do { 
+            System.out.print(i + " "); 
+            i++; 
+        } while (i < 5); 
+        System.out.println(i); 
+    } 
+} 
+// Guess the output of this do-while loop. 
+ 
+ Output :  1 2 3 4 5
+
+
+
+
+ 
+Snippet 5:  
+public class ConditionalLoopOutput { 
+    public static void main(String[] args) { 
+        int num = 1; 
+        for (int i = 1; i <= 4; i++) { 
+            if (i % 2 == 0) { 
+                num += i; 
+            } else { 
+                num -= i; 
+            } 
+        } 
+        System.out.println(num); 
+    } 
+} 
+// Guess the output of this loop. 
+ 
+Output :  3
+
+
+
+
+Snippet 6:  
+public class IncrementDecrement { 
+    public static void main(String[] args) { 
+        int x = 5; 
+        int y = ++x - x-- + --x + x++; 
+        System.out.println(y); 
+    } 
+} 
+// Guess the output of this code snippet. 
+ 
+Output :   8
+
+
+
+
+
+
+Snippet 7:  
+public class NestedIncrement { 
+    public static void main(String[] args) { 
+        int a = 10; 
+        int b = 5; 
+        int result = ++a * b-- - --a + b++; 
+        System.out.println(result); 
+    } 
+} 
+// Guess the output of this code snippet. 
+ Output :  49
+
+
+
+
+
+Snippet 8:  
+public class LoopIncrement { 
+    public static void main(String[] args) { 
+        int count = 0; 
+        for (int i = 0; i < 4; i++) { 
+            count += i++ - ++i; 
+        } 
+        System.out.println(count); 
+    } 
+ 
+ 
+} 
+// Guess the output of this code snippet.
+
+Output :  -1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
